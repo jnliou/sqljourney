@@ -64,10 +64,11 @@ Output:
 +------+-------+
 
 ANSWER:
-
+```sql
 SELECT *
 FROM Employee as e
 LEFT JOIN BONUS ON e.empID = Bonus.empID
+```
 
 | empId | name   | supervisor | salary | empId | bonus |
 | ----- | ------ | ---------- | ------ | ----- | ----- |
@@ -78,10 +79,11 @@ LEFT JOIN BONUS ON e.empID = Bonus.empID
 
 * Left join both the tables together on empID 
 
-
+```sql
 SELECT name, bonus
 FROM Employee as e
 LEFT JOIN BONUS ON e.empID = Bonus.empID
 WHERE bonus < 1000 OR bonus IS NULL
+```
 
 * Utilize the WHERE statement, to query if bonus < 1000, added IS NULL to ensure we account for null values 

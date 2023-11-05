@@ -68,15 +68,16 @@ Machine 2's average time is ((4.512 - 4.100) + (5.000 - 2.500)) / 2 = 1.456
 
 Answer/Thought Process: 
 
-* Create a self  join between 
-
+* Create a self  join for all the columns in the Activity table
+* Separate the activity type into one table column for "end" (a.activity_type) and "start" (b.activity_type)
+```sql
 SELECT 
 a.machine_id, a.process_id, b.machine_id, b.process_id, a.activity_type, b.activity_type, a.timestamp, b.timestamp
 From Activity a
 JOIN Activity b
 ON a.machine_id = b.machine_id AND a.process_id = b.process_id 
 AND a.activity_type = "end" AND b.activity_type = "start"
-
+```
 
 | machine_id | process_id | activity_type | timestamp | machine_id | process_id | activity_type | timestamp |
 | ---------- | ---------- | ------------- | --------- | ---------- | ---------- | ------------- | --------- |
@@ -87,6 +88,9 @@ AND a.activity_type = "end" AND b.activity_type = "start"
 | 2          | 0          | end           | 4.512     | 2          | 0          | start         | 4.1       |
 | 2          | 1          | end           | 5         | 2          | 1          | start         | 2.5       |
 
+* Create a column that takes the average of the processing time by substracting a.timestamp - b.timestamp
+
+```sql
 SELECT 
 a.machine_id, a.process_id, a.activity_type, b.activity_type, a.timestamp, b.timestamp, AVG(a.timestamp-b.timestamp) as processing_time
 From Activity a
@@ -94,6 +98,7 @@ JOIN Activity b
 ON a.machine_id = b.machine_id AND a.process_id = b.process_id 
 AND a.activity_type = "end" AND b.activity_type = "start"
 GROUP BY 1,2,3,4
+```
 
 | machine_id | process_id | activity_type | activity_type | timestamp | timestamp | (a.timestamp-b.timestamp) |
 | ---------- | ---------- | ------------- | ------------- | --------- | --------- | ------------------------- |
@@ -106,16 +111,18 @@ GROUP BY 1,2,3,4
 
 #GroupBy - machine_id, process_id, activity_type 
 
+
+* Query to look at the average processing time, and remove the timestamp column
+
+```sql
 SELECT 
-a.machine_id, ROUND(AVG(a.timestamp-b.timestamp),3) as processing_time 
+a.machine_id, a.process_id, a.activity_type, b.activity_type, AVG(a.timestamp-b.timestamp) as processing_time
 From Activity a
 JOIN Activity b
 ON a.machine_id = b.machine_id AND a.process_id = b.process_id 
 AND a.activity_type = "end" AND b.activity_type = "start"
-GROUP BY 1
-
-*** 
-
+GROUP BY 1,2,3,4
+```
 
 | machine_id | process_id | activity_type | activity_type | processing_time    |
 | ---------- | ---------- | ------------- | ------------- | ------------------ |
@@ -125,3 +132,27 @@ GROUP BY 1
 | 1          | 1          | end           | start         | 0.9899999499320984 |
 | 2          | 0          | end           | start         | 0.4120001792907715 |
 | 2          | 1          | end           | start         | 2.5                |
+
+
+FINAL Answer:
+
+
+* Query to look at the rounded average processing time (to 3 decimal places) and group by machine_id. 
+
+```sql
+SELECT 
+a.machine_id, ROUND(AVG(a.timestamp-b.timestamp),3) as processing_time 
+From Activity a
+JOIN Activity b
+ON a.machine_id = b.machine_id AND a.process_id = b.process_id 
+AND a.activity_type = "end" AND b.activity_type = "start"
+GROUP BY 1
+```
+*** 
+
+
+| machine_id | processing_time |
+|------------| ----------------|
+| 0          | 0.894           |
+| 1          | 0.995           |
+| 2          | 1.456           |
