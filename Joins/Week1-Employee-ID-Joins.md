@@ -1,5 +1,5 @@
 577. Employee Bonus - Completed November 4, 2023
-
+[LeetCode Question](https://leetcode.com/problems/employee-bonus/description/?envType=study-plan-v2&envId=top-sql-50)
 Table: Employee
 
 
