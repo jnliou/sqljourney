@@ -1,6 +1,3 @@
-Certainly! Below is a sample README for your GitHub repository that outlines your SQL journey progress, including a section for a weekly progress chart tracker.
-
----
 
 # SQL Journey :trophy:
 
