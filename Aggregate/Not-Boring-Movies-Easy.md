@@ -4,7 +4,7 @@ November, 06, 2023
 
 [LeetCode Question](https://leetcode.com/problems/not-boring-movies/description/?envType=study-plan-v2&envId=top-sql-50)
 
-[cat](https://i.pinimg.com/originals/5b/9c/0f/5b9c0fa145a26cbe3b5e3aafb621d640.gif)
+![cat](https://i.pinimg.com/originals/5b/9c/0f/5b9c0fa145a26cbe3b5e3aafb621d640.gif "cat")
 
 The `Cinema` table has the following structure:
 
