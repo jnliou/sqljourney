@@ -58,15 +58,3 @@ ORDER BY rating DESC;
 
 * Sorting out odd numbers: (using the `MOD(id, 2) = 1` condition) 
 * Sorting out how the description is not boring = using <> 
-
-
-
-
-
-
-```sql 
-SELECT * 
-FROM Cinema 
-WHERE id % 2 <> 0 AND description <> "boring"
-ORDER BY rating DESC;
-```
