@@ -2,7 +2,7 @@
 November 16, 2023
 
 [LeetCode Question](https://leetcode.com/problems/percentage-of-users-attended-a-contest/submissions/1100374027/?envType=study-plan-v2&envId=top-sql-50)
-![Contest](https://www.icegif.com/wp-content/uploads/winner-icegif-7.gif)
+![Contest](https://www.icegif.com/wp-content/uploads/winner-icegif-9.gif)
 
 #### Background
 We have two tables: `Users` and `Register`. `Users` table contains user details, and `Register` table contains the records of users registering for various contests.
