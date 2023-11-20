@@ -2,7 +2,7 @@
 ## Queries Quality and Percentage
 November 17, 2023
 [LeetCode Question](https://leetcode.com/problems/queries-quality-and-percentage/description/?envType=study-plan-v2&envId=top-sql-50)
-![DogCat](https://media.tenor.com/ql1_oqEH5k8AAAAd/dog-cat.gif)
+![DogCat](https://media1.popsugar-assets.com/files/thumbor/HNTGuST7AK8Lt6UbQq5YA3usrG8=/fit-in/500x214/top/filters:format_auto():upscale()/2014/01/14/951/n/1922243/2a11e9a00e0c1465_tumblr_mhc5ukFAdr1qf4k86o1_500.gif)
 
 ### Table: Queries
 
